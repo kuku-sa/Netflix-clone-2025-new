@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
+import Home from "./pages/Home/Home"; // Import your Home page
 import "./index.css";
 import "./components/Header/header.css";
 import "./components/Footer/footer.css";
@@ -27,11 +28,8 @@ const App = () => {
         </div>
       )}
 
-      {/* Main Content */}
-      <main style={{ minHeight: "70vh", padding: "50px", textAlign: "center" }}>
-        <h1>Welcome to Netflix Clone</h1>
-        <p>This is your main content area. Add movies, banners, and carousels here.</p>
-      </main>
+      {/* Main Content - replace placeholder with Home */}
+      <Home />
 
       {/* Footer */}
       <Footer />
