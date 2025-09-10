@@ -1,8 +1,8 @@
 import axios from "axios";
 
 // Create an Axios instance with TMDB base URL
-const axiosInstance = axios.create({
+const instance = axios.create({
   baseURL: "https://api.themoviedb.org/3",
 });
 
-export default Instance;
+export default instance;

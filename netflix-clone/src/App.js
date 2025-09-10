@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import Header from "./components/Header/Header";
-import Footer from "./components/Footer/Footer";
+
 import Home from "./pages/Home/Home"; 
 import "./index.css";
 import "./components/Header/header.css";
@@ -11,9 +10,7 @@ const App = () => {
 
   return (
     <div className="App">
-      {/* Header */}
-      <Header menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
-
+     
       {/* Mobile Hamburger Menu */}
       {menuOpen && (
         <div className="mobile_menu">
@@ -31,8 +28,7 @@ const App = () => {
       {/* Main Content - replace placeholder with Home */}
       <Home />
 
-      {/* Footer */}
-      <Footer />
+      
     </div>
   );
 };

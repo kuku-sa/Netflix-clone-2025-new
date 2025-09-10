@@ -40,3 +40,18 @@
   transform: scale(1.1);
   opacity: 1;
 }
+/* Row YouTube Trailer */
+.row_trailer {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.row_trailer iframe {
+  border: none;
+  border-radius: 10px;
+  max-width: 100%;
+  width: 80%;
+  height: 450px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
