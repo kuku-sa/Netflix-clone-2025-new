@@ -13,7 +13,7 @@ const Header = ({ menuOpen, setMenuOpen }) => {
         {/* Left Side */}
         <div className="header_left">
           <img src={NetflixLogo} alt="Netflix Logo" />
-          <ul className="desktop_menu">
+          <ul className={`desktop_menu ${menuOpen ? "open" : ""}`}>
             <li>Netflix</li>
             <li>Home</li>
             <li>TV Shows</li>

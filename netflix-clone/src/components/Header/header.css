@@ -94,3 +94,29 @@
     display: block;
   }
 }
+.desktop_menu.open {
+  display: flex !important;
+  flex-direction: column;
+  position: absolute;
+  top: 10vh;
+  left: 0;
+  right: 0;
+  background-color: #141414;
+  padding: 20px;
+  gap: 15px;
+  z-index: 20;
+}
+@media (max-width: 480px) {
+  .header_left img {
+    height: 28px;
+  }
+
+  .header_container {
+    height: 8vh;
+    width: 95%;
+  }
+
+  .header_right svg {
+    font-size: 20px;
+  }
+}

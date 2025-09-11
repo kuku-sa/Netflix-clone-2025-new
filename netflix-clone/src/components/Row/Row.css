@@ -55,3 +55,21 @@
   height: 450px;
   box-shadow: 0 0 20px rgba(0,0,0,0.5);
 }
+/* Mobile: switch to grid */
+@media (max-width: 480px) {
+  .row_posters {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 10px;
+    overflow-x: hidden;
+  }
+
+  .row_poster {
+    max-height: 160px;
+    width: 100%;
+  }
+
+  .row_posterLarge {
+    max-height: 220px;
+  }
+}
