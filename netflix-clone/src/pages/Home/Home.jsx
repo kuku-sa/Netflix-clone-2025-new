@@ -7,10 +7,7 @@ import requests from "../../utils/requests";
 const Home = () => {
   return (
     <div>
-      {/* Header */}
-      {/* <Header /> */}
-
-      {/* Banner */}
+      
       <Banner />
 
       {/* Movie Rows */}

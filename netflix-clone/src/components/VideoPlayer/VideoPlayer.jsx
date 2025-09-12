@@ -1,6 +1,6 @@
 import React from "react";
 import YouTube from "react-youtube";
-import "./VideoPlayer.css"; 
+
 
 const VideoPlayer = ({ videoId, onClose }) => {
   const opts = {

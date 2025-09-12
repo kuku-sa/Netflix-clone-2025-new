@@ -32,6 +32,7 @@ function Row({ title, fetchUrl, isLargeRow }) {
           if (videoId) setTrailerUrl(videoId);
         })
         .catch((error) => console.log("Trailer not found:", error));
+        
     }
   };
 
