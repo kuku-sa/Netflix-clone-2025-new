@@ -1,0 +1,47 @@
+.cartContainer {
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 0 20px;
+}
+
+.cartItems {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.cartItem {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.cartItem img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin-right: 15px;
+}
+
+.details h3 {
+  margin: 0 0 8px 0;
+}
+
+.removeBtn {
+  padding: 5px 10px;
+  border: none;
+  background: red;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.empty {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 1.5rem;
+  color: #555;
+}
