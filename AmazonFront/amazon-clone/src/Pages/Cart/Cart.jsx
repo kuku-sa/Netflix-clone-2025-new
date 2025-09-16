@@ -27,10 +27,10 @@ function Cart() {
                   </p>
                   <p>Quantity: {item.quantity}</p>
                   <button
-                    className={styles.removeBtn}
-                    onClick={() => removeFromCart(item.id)}
-                  >
-                    Remove
+                    className={styles.checkoutBtn}
+                   disabled={cartItems.length === 0}
+                   >
+                    Proceed to Checkout
                   </button>
                 </div>
               </div>

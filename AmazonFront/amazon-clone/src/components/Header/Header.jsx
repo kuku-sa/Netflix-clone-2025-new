@@ -1,12 +1,23 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { FaSearch, FaShoppingCart, FaMapMarkerAlt } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styles from "./Header.module.css";
 import { CartContext } from "../../context/CartContext";
 
 function Header() {
   const { cartItems } = useContext(CartContext);
   const cartCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+
+  const [search, setSearch] = useState("");
+  const navigate = useNavigate();
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (search.trim()) {
+      navigate(`/result?query=${encodeURIComponent(search.trim())}`);
+      setSearch("");
+    }
+  };
 
   return (
     <header className={styles.header}>
@@ -27,15 +38,20 @@ function Header() {
         </div>
       </div>
 
-      <div className={styles.search}>
+      <form className={styles.search} onSubmit={handleSearch}>
         <select>
           <option value="all">All</option>
         </select>
-        <input type="text" placeholder="Search Amazon" />
-        <button>
+        <input
+          type="text"
+          placeholder="Search Amazon"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
+        <button type="submit">
           <FaSearch />
         </button>
-      </div>
+      </form>
 
       <div className={styles.navLinks}>
         <Link to="/signin">

@@ -1,23 +1,21 @@
 import React, { useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import ReactStars from "react-rating-stars-component";
 import CurrencyFormat from "../CurrencyFormat/CurrencyFormat";
 import styles from "./Product.module.css";
 import { CartContext } from "../../context/CartContext";
 
-function ProductCard({ data }) {
+function ProductCard({ data, className }) {
   const { cartItems, addToCart, removeFromCart } = useContext(CartContext);
-
   const [starSize, setStarSize] = useState(16);
   const [isInCart, setIsInCart] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  // Check if product is in cart
   useEffect(() => {
     const exists = cartItems?.some((item) => item.id === data.id) || false;
     setIsInCart(exists);
   }, [cartItems, data.id]);
 
-  // Responsive stars
   useEffect(() => {
     function handleResize() {
       if (window.innerWidth < 480) setStarSize(12);
@@ -29,7 +27,6 @@ function ProductCard({ data }) {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Handle add/remove
   const handleCartClick = () => {
     setLoading(true);
     setTimeout(() => {
@@ -40,13 +37,15 @@ function ProductCard({ data }) {
   };
 
   return (
-    <div className={styles.productCard}>
-      <a href="#">
+    <div className={`${styles.productCard} ${className || ""}`}>
+      <Link to={`/product/${data.id}`}>
         <img src={data.image} alt={data.title} />
-      </a>
+      </Link>
 
       <div className={styles.productInfo}>
-        <h3 title={data.title}>{data.title}</h3>
+        <h3 title={data.title}>
+          <Link to={`/product/${data.id}`}>{data.title}</Link>
+        </h3>
 
         <div className={styles.productMeta}>
           <ReactStars
@@ -70,7 +69,9 @@ function ProductCard({ data }) {
         </p>
 
         <button
-          className={`${styles.addToCartBtn} ${isInCart ? styles.removeBtn : ""}`}
+          className={`${styles.addToCartBtn} ${
+            isInCart ? styles.removeBtn : ""
+          }`}
           onClick={handleCartClick}
           disabled={loading}
         >

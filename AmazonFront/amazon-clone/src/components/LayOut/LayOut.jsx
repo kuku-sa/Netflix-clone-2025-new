@@ -1,13 +1,14 @@
-import React from 'react'
-import Header from '../Header/Header'
+import React from 'react';
+import { Outlet } from 'react-router-dom';
+import Header from '../Header/Header';
 
-function LayOut({children}) {
+function LayOut() {
   return (
     <div>
-         <Header/>
-         <Outlet />
+      <Header />
+      <Outlet /> {/* This renders nested routes */}
     </div>
-  )
+  );
 }
 
-export default LayOut
+export default LayOut;

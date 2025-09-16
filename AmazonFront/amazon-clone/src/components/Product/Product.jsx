@@ -15,8 +15,12 @@ function Product() {
 
   return (
     <div className={styles.productSection}>
-      {products.map((item) => (
-        <ProductCard key={item.id} data={item} />
+      {products.map((item, index) => (
+        <ProductCard
+          key={item.id}
+          data={item}
+          className={index < 4 ? styles.featured : ""}
+        />
       ))}
     </div>
   );
