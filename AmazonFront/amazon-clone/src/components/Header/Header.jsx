@@ -10,7 +10,6 @@ function Header() {
 
   return (
     <header className={styles.header}>
-      {/* Logo */}
       <div className={styles.logo}>
         <Link to="/">
           <img
@@ -20,7 +19,6 @@ function Header() {
         </Link>
       </div>
 
-      {/* Delivery info */}
       <div className={styles.delivery}>
         <FaMapMarkerAlt />
         <div>
@@ -29,7 +27,6 @@ function Header() {
         </div>
       </div>
 
-      {/* Search bar */}
       <div className={styles.search}>
         <select>
           <option value="all">All</option>
@@ -40,7 +37,6 @@ function Header() {
         </button>
       </div>
 
-      {/* Right-side links */}
       <div className={styles.navLinks}>
         <Link to="/signin">
           <div>

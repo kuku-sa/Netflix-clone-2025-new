@@ -1,54 +1,86 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
 import ReactStars from "react-rating-stars-component";
 import CurrencyFormat from "../CurrencyFormat/CurrencyFormat";
 import styles from "./Product.module.css";
 import { CartContext } from "../../context/CartContext";
 
 function ProductCard({ data }) {
-  const { addToCart } = useContext(CartContext);
+  const { cartItems, addToCart, removeFromCart } = useContext(CartContext);
+
+  const [starSize, setStarSize] = useState(16);
+  const [isInCart, setIsInCart] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  // Check if product is in cart
+  useEffect(() => {
+    const exists = cartItems?.some((item) => item.id === data.id) || false;
+    setIsInCart(exists);
+  }, [cartItems, data.id]);
+
+  // Responsive stars
+  useEffect(() => {
+    function handleResize() {
+      if (window.innerWidth < 480) setStarSize(12);
+      else if (window.innerWidth < 768) setStarSize(14);
+      else setStarSize(16);
+    }
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Handle add/remove
+  const handleCartClick = () => {
+    setLoading(true);
+    setTimeout(() => {
+      if (isInCart) removeFromCart(data.id);
+      else addToCart(data);
+      setLoading(false);
+    }, 500);
+  };
 
   return (
     <div className={styles.productCard}>
-      {/* Product Image */}
-      <Link to={`/product/${data.id}`}>
+      <a href="#">
         <img src={data.image} alt={data.title} />
-      </Link>
+      </a>
 
-      {/* Product Info */}
       <div className={styles.productInfo}>
-        <h3>{data.title}</h3>
+        <h3 title={data.title}>{data.title}</h3>
 
-        {/* Rating */}
         <div className={styles.productMeta}>
           <ReactStars
             count={5}
             value={data.rating?.rate || 0}
-            size={16}
+            size={starSize}
             isHalf={true}
             edit={false}
             activeColor="#f0c14b"
+            emptyIcon={<i className="far fa-star" />}
+            halfIcon={<i className="fa fa-star-half-alt" />}
+            filledIcon={<i className="fa fa-star" />}
           />
-          {data.rating ? (
-            <span className={styles.ratingText}>
-              {data.rating.rate.toFixed(1)} ({data.rating.count})
-            </span>
-          ) : (
-            <span className={styles.ratingText}>No reviews</span>
-          )}
+          <span className={styles.ratingText}>
+            {data.rating?.rate?.toFixed(1) || "0.0"} ({data.rating?.count || 0})
+          </span>
         </div>
 
-        {/* Price */}
         <p className={styles.price}>
           <CurrencyFormat value={data.price} />
         </p>
 
-        {/* Add to Cart */}
         <button
-          className={styles.addToCartBtn}
-          onClick={() => addToCart(data)}
+          className={`${styles.addToCartBtn} ${isInCart ? styles.removeBtn : ""}`}
+          onClick={handleCartClick}
+          disabled={loading}
         >
-          Add to Cart
+          {loading
+            ? isInCart
+              ? "Removing..."
+              : "Adding..."
+            : isInCart
+            ? "Remove from Cart"
+            : "Add to Cart"}
         </button>
       </div>
     </div>
