@@ -10,7 +10,7 @@ export default function Category() {
         <CategoryCard
           key={index}
           item={item}
-          featured={index < 4} // first 4 items are featured
+          featured={index < 4} 
         />
       ))}
     </div>

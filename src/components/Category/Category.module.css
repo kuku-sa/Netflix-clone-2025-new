@@ -66,6 +66,16 @@
 .categoryCard p:hover {
   text-decoration: underline;
 }
+/* in Category.module.css */
+.shopNowLink { color: #007185;
+ cursor: pointer;
+ font-weight: 1000;
+ margin-bottom: 10px;
+ text-decoration: none; /* remove underline by default */
+}
+.shopNowLink:hover {
+ text-decoration: underline; /* add underline on hover */
+}
 
 /* === Responsive Breakpoints === */
 @media (max-width: 1024px) {

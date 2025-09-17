@@ -1,8 +1,8 @@
 import React from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import styles from "./Carousel.module.css"; // make sure the file exists
-import { imges } from "./images/data"; // your images array
+import styles from "./Carousel.module.css"; 
+import { imges } from "./images/data"; 
 
 function CarouselEffect() {
   return (
