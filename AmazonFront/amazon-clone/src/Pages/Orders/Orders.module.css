@@ -1,0 +1,32 @@
+.ordersPage {
+  padding: 20px;
+}
+
+.orderList {
+  list-style: none;
+  padding: 0;
+}
+
+.orderItem {
+  display: flex;
+  gap: 15px;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+  align-items: center;
+}
+
+.orderItem img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.orderItem h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.orderItem p {
+  margin: 2px 0;
+  font-size: 0.9rem;
+}

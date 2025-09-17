@@ -1,0 +1,66 @@
+/* Container for the carousel */
+.carouselContainer {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Images in carousel */
+.carouselContainer img {
+  width: 100%;
+  height: 400px; /* Adjust height as needed */
+  object-fit: cover;
+}
+
+/* Remove default background of react-responsive-carousel slides */
+.carousel .slide {
+  background: none;
+}
+
+/* Fade overlay at bottom of carousel (like Amazon) */
+.carouselContainer::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 150px; /* height of fade */
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.5)
+  );
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Optional: top fade for smooth effect */
+.carouselContainer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px; /* fade height */
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.2)
+  );
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .carouselContainer img {
+    height: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .carouselContainer img {
+    height: 200px;
+  }
+}
