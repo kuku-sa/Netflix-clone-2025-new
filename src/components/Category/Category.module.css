@@ -1,0 +1,87 @@
+/* === Category Section (Grid) === */
+.categorySection {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 120px; /* space between cards */
+  padding: 200px 0;
+  position: relative;
+}
+
+/* === Category Card === */
+.categoryCard {
+  flex: 1 1 calc(25% - 20px); /* 4 per row minus gap */
+  max-width: 260px; /* optional max width */
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  background-color: #fff;
+}
+
+/* Featured (first 4) */
+.featured {
+  transform: scale(1.2);
+  margin-top: -120px; /* lower than carousel */
+  z-index: 5;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.featured:hover {
+  transform: scale(1.22); /* subtle lift on hover */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+}
+
+/* Image styling */
+.categoryCard img {
+  width: 60%;
+  height: 190px;
+  object-fit: cover;
+  transition: transform 0.25s ease;
+}
+
+.featured img {
+  transform: scale(1.05);
+}
+
+.featured img:hover {
+  transform: scale(1.06); /* subtle zoom on hover */
+}
+
+/* Card title */
+.categoryCard h4 {
+  font-size: 1rem;
+  margin: 20px 0;
+}
+
+/* Shop now link */
+.categoryCard p {
+  color: #007185;
+  cursor: pointer;
+  font-weight: 1000;
+  margin-bottom: 10px;
+}
+
+.categoryCard p:hover {
+  text-decoration: underline;
+}
+
+/* === Responsive Breakpoints === */
+@media (max-width: 1024px) {
+  .categoryCard {
+    flex: 1 1 calc(33.33% - 20px); /* 3 per row */
+  }
+}
+
+@media (max-width: 768px) {
+  .categoryCard {
+    flex: 1 1 calc(50% - 20px); /* 2 per row */
+  }
+}
+
+@media (max-width: 480px) {
+  .categoryCard {
+    flex: 1 1 100%; /* 1 per row */
+  }
+}

@@ -1,0 +1,71 @@
+.lowerHeader {
+  background-color: #232f3e;
+  color: white;
+  padding: 10px 20px;
+  overflow-x: auto; /* allows horizontal scroll */
+  white-space: nowrap;
+
+  /* Sticky below main header */
+  position: sticky;
+  top: 60px; /* match header height */
+  z-index: 999; /* slightly below main header */
+}
+
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.allMenu {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* Hover effect */
+.menu li:hover {
+  text-decoration: underline;
+}
+
+/* Scrollbar style for better UX */
+.lowerHeader::-webkit-scrollbar {
+  height: 6px;
+}
+
+.lowerHeader::-webkit-scrollbar-thumb {
+  background: #febd69;
+  border-radius: 3px;
+}
+
+/* Responsive: on mobile, hide some links */
+@media (max-width: 1024px) {
+  .menu li:not(.allMenu):nth-child(n + 6) {
+    display: none; /* hide less important links */
+  }
+}
+/* Responsive */
+@media (max-width: 768px) {
+  .lowerHeader {
+    background-color: rgba(35, 47, 62, 0.95);
+  }
+
+  .menu {
+    gap: 10px;
+    padding-bottom: 5px;
+  }
+
+  .allMenu {
+    font-size: 0.9rem;
+  }
+
+  .menu li {
+    font-size: 0.85rem;
+  }
+}

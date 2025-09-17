@@ -1,0 +1,92 @@
+/* src/Pages/Auth/SignUp.module.css */
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  padding: 20px;
+  background-color: #f7f7f7;
+}
+
+.signupBox {
+  background-color: #fff;
+  padding: 40px 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+.signupBox h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.6rem;
+  color: #111;
+}
+
+.signupBox input {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 0.95rem;
+  transition: border-color 0.3s ease;
+}
+
+.signupBox input:focus {
+  border-color: #f0c14b;
+  outline: none;
+}
+
+.signupBox button {
+  width: 100%;
+  padding: 10px 0;
+  background-color: #f0c14b;
+  border: 1px solid #a88734;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #111;
+  transition: background-color 0.3s ease;
+}
+
+.signupBox button:hover {
+  background-color: #e6b800;
+}
+
+.signupBox .links {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.signupBox .links a {
+  color: #0073bb;
+  text-decoration: none;
+  margin-left: 5px;
+}
+
+.signupBox .links a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+  .signupBox {
+    padding: 30px 20px;
+  }
+
+  .signupBox h2 {
+    font-size: 1.4rem;
+  }
+
+  .signupBox input {
+    font-size: 0.9rem;
+  }
+
+  .signupBox button {
+    font-size: 0.95rem;
+  }
+}

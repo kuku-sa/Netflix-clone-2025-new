@@ -1,0 +1,44 @@
+.resultPage {
+  padding: 20px;
+}
+
+.resultPage h1 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.resultPage p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Reuse product grid style */
+.productSection {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Responsive card widths (same as Product.module.css) */
+.productSection > * {
+  width: calc((100% - 4 * 20px) / 5); /* desktop: 5 per row */
+}
+
+@media (max-width: 1024px) {
+  .productSection > * {
+    width: calc((100% - 3 * 20px) / 4);
+  }
+}
+
+@media (max-width: 768px) {
+  .productSection > * {
+    width: calc((100% - 2 * 20px) / 2);
+  }
+}
+
+@media (max-width: 480px) {
+  .productSection > * {
+    width: 100%;
+  }
+}

@@ -1,0 +1,58 @@
+/* Container for the carousel */
+.carouselContainer {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Carousel images */
+.carouselContainer img {
+  width: 100%;
+  height: 400px; /* adjust height */
+  object-fit: cover;
+}
+
+/* Remove default background of carousel slides */
+.carousel .slide {
+  background: none;
+}
+
+/* Fade overlay at bottom of carousel */
+.carouselContainer::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 150px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Optional top fade */
+.carouselContainer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: linear-gradient(to top, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.2));
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .carouselContainer img {
+    height: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .carouselContainer img {
+    height: 200px;
+  }
+}
