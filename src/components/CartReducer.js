@@ -10,7 +10,7 @@ export const reducer = (state, action) => {
         cart: [...state.cart, action.item],
       };
     case "REMOVE_FROM_CART":
-        return
+        
       const index = state.cart.findIndex((item) => item.id === action.id);
       let newCart = [...state.cart];
 

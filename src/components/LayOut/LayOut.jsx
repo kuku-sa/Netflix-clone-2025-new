@@ -6,7 +6,7 @@ function LayOut() {
   return (
     <div>
       <Header />
-      <Outlet /> {/* This renders nested routes */}
+      <Outlet /> 
     </div>
   );
 }
