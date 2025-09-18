@@ -3,6 +3,7 @@ import ReactStars from "react-rating-stars-component";
 import CurrencyFormat from "../CurrencyFormat/CurrencyFormat";
 import styles from "./Product.module.css";
 import { CartContext } from "../../context/CartContext";
+import { Link } from "react-router-dom";
 
 function ProductCard({ data }) {
   const { cartItems, addToCart, removeFromCart } = useContext(CartContext);
@@ -11,9 +12,9 @@ function ProductCard({ data }) {
 
   return (
     <div className={styles.productCard}>
-      <a href="#">
+      <Link to={`/product/${data.id}`}>
         <img src={data.image} alt={data.title} />
-      </a>
+     </Link>
 
       <div className={styles.productInfo}>
         <h3>{data.title}</h3>

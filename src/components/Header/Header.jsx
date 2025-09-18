@@ -54,7 +54,7 @@ function Header() {
       </form>
 
       <div className={styles.navLinks}>
-        <Link to="/signin">
+        <Link to="/Auth">
           <div>
             <p>Sign In</p>
             <span>Account & Lists</span>
