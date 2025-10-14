@@ -1,14 +1,18 @@
 import React, { useState } from "react";
+import { BrowserRouter } from "react-router-dom";
 import Header from "./components/Header/Header";
-import Home from "../src/pages/Home/Home";
+import Home from "./pages/Home/Home";
+
 const App = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div className="App">
-      <Header menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
-      <Home />
-    </div>
+    <BrowserRouter basename="/Netflix-clone-2025-new">
+      <div className="App">
+        <Header menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+        <Home />
+      </div>
+    </BrowserRouter>
   );
 };
 
